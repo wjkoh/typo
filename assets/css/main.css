@@ -682,6 +682,8 @@ blockquote p {
     margin: 0;
     color: #111;
     background: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
   .content {
@@ -694,13 +696,27 @@ blockquote p {
     padding: 0;
   }
 
-  h1,
-  .header-title,
-  .single-title {
+  h1 {
     font-size: 20pt;
     line-height: 1.2;
-    margin-top: 0;
+    margin-top: 1.5rem;
     margin-bottom: 0.5rem;
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .header-title,
+  .single-title {
+    margin-top: 0;
+  }
+
+  .header-title {
+    font-size: 15pt;
+    margin-bottom: 0.5rem;
+  }
+
+  .header-title a {
+    text-decoration: none;
   }
 
   h2 {
@@ -759,10 +775,29 @@ blockquote p {
     margin-bottom: 0.8rem;
   }
 
+  .toc {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-top: 0.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .toc a {
+    text-decoration: none;
+  }
+
   pre,
   code {
     font-family: var(--font-mono);
     font-size: 9pt;
+  }
+
+  li code,
+  table code,
+  p code {
+    background-color: #f2f2f2;
+    padding: 1px 3px;
+    border-radius: 3px;
   }
 
   pre {
@@ -774,8 +809,13 @@ blockquote p {
     white-space: pre-wrap;
     word-break: break-word;
     border-radius: 4px;
+    overflow: visible;
     break-inside: avoid;
     page-break-inside: avoid;
+  }
+
+  .table-outer {
+    overflow: visible;
   }
 
   table {
@@ -812,6 +852,20 @@ blockquote p {
     page-break-inside: avoid;
     max-width: 100% !important;
     height: auto !important;
+  }
+
+  .img-dark {
+    display: none !important;
+  }
+
+  .img-light {
+    display: block !important;
+  }
+
+  .katex-display {
+    overflow: visible;
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 
   a {
